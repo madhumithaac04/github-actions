@@ -9,3 +9,16 @@ jobs:
         run: echo "Hello, World!"
       - name: variable
         run: echo ${{github.ref}}
+  need-1:
+     needs: say-hello-inline-bash
+     runs-on: ubuntu-latest
+     steps:
+       - name: print need 1
+         run: echo "need one"
+  need-2:
+     needs: [say-hello-inline-bash,need-1]
+     runs-on: ubuntu-latest
+     steps:
+       - name: print need 2
+         run: echo "need two"
+         
