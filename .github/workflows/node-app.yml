@@ -2,7 +2,7 @@ name: Hello node
 on: push
 jobs:
   hello:
-    runs-on: ${{matrix.os}}
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: actions/setup-node@v7.1.0
-        with: ${{matrix.node}}
+        with: ${{ matrix.node }}
       - run: npm start
      
   
