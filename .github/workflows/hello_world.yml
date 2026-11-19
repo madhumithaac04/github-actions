@@ -1,6 +1,8 @@
 name: Hello World Workflow
 on: 
   workflow_dispatch:
+env:
+  NAME: madhumitha-workflow
 jobs:
   say-hello-inline-bash:
     runs-on: ubuntu-latest
@@ -9,3 +11,6 @@ jobs:
         run: echo "Hello, World!"
       - name: variable
         run: echo ${{github.ref}}
+      - name: custom variable
+        run: echo ${{env.NAME}}
+        
