@@ -6,6 +6,8 @@ env:
 jobs:
   say-hello-inline-bash:
     runs-on: ubuntu-latest
+    env:
+      JOB_LEVEL: I am from job level
     steps:
       - name: Say Hello
         run: echo "Hello, World!"
@@ -13,4 +15,11 @@ jobs:
         run: echo ${{github.ref}}
       - name: custom variable
         run: echo ${{env.NAME}}
+      - name: job_level
+        run: echo ${{env.JOB_LEVEL}}
+      - name: step_level
+        env:
+           STEP_LEVEL: I am from step level
+        run: echo ${{env.STEP_LEVEL}}
+        
         
